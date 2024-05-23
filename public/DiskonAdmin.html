@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Texturina:ital,opsz,wght@0,12..72,100..900;1,12..72,100..900&display=swap" rel="stylesheet">
+    <style>
+        .sidebar {
+            transition: transform 0.3s ease;
+            transform: translateX(100%);
+        }
+    
+        .sidebar.active {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body>
+  <div class="flex font-outfit">
+
+<!--TAMBAH SIDEBAR-->
+
+    <div id="sidebar" class="sidebar flex flex-col fixed top-0 right-0 w-72 h-full bg-white text-black p-8 shadow-2xl z-20">
+        <div class="flex justify-between">
+            <h1 class="text-2xl font-bold">Tambah Diskon</h1>  
+            <button id="closeButton" class="text-4xl">&times;</button>
+        </div>
+        <label for="judul" class="font-semibold mb-1">Judul</label>
+        <input class="text-gray-400 border border-gray-400 rounded-lg h-10 mb-4 px-3" type="text" name="judul" id="judul">
+        <label class="font-semibold mb-1" for="persentase">Persentase</label>
+        <input class="text-gray-400 border border-gray-400 rounded-lg h-10 mb-4 px-3" type="text" name="persentase" id="persentase">
+        <label class="font-semibold mb-1" for="time-start">Waktu Dimulai</label>
+        <input class="text-gray-400 border border-gray-400 rounded-lg h-10 mb-4 px-3" type="date" name="time-start" id="time-start">
+        <label class="font-semibold mb-1" for="time-end">Waktu Berakhir</label>
+        <input class="text-gray-400 border border-gray-400 rounded-lg h-10 mb-4 px-3" type="date" name="time-end" id="time-end">
+        <label class="font-semibold mb-1" for="Status">Status</label>
+        <select class="text-white h-10 border border-blue-600 rounded-lg bg-blue-600 px-3 mb-4 focus:outline-none" name="Status" id="Status">
+            <option value="Transit">Transit</option>
+            <option value="On The Road">On The Road</option>
+        </select>
+        <label class="font-semibold mb-1" for="image">Gambar</label>
+        <input class="border-black text-gray-400 h-20" type="image" src="" alt="">
+        <div class="absolute bottom-0 right-0 w-full flex justify-center items-center p-3 bg-white rotate-180 shadow-lg flex-row-reverse">
+            <button class="border border-orange-400 rounded-lg h-10 w-28 mx-2 rotate-180 text-orange-400" type="button">Reset</button>
+            <button class="border border-orange-400 rounded-lg h-10 w-28 mx-2 rotate-180 text-white bg-orange-400" type="button">Simpan</button>
+        </div> 
+    </div>
+
+<!--SIDEBAR-->
+
+    <aside class="h-screen sticky top-0">
+        <div class="w-[300px] h-screen bg-white p-10 border-r-2">
+          <div class="font-texturina italic text-3xl text-orange-400">TicketXpress</div>
+          <div class="text-xl text-blue-600">MyAdmin</div>
+          <div class="flex flex-col py-4">
+            <a href="BerandaAdmin.html" class="flex items-center gap-3 px-10 py-3 hover:bg-blue-100 rounded-xl hover:text-blue-700"><ion-icon name="home-outline"></ion-icon> Beranda</a>
+            <p class="flex justify-start items-center mt-4 mb-4">Manajemen</p>
+            <a href="JadwalAdmin.html" class="flex items-center gap-3 px-10 py-3 hover:bg-blue-100 rounded-xl hover:text-blue-700"><ion-icon name="time-outline"></ion-icon> Jadwal</a>
+            <a href="TiketAdmin.html" class="flex items-center gap-3 mt-3 px-10 py-3 hover:bg-blue-100 rounded-xl hover:text-blue-700"><ion-icon name="ticket-outline"></ion-icon> Tiket</a>
+            <a href="DiskonAdmin.html" class="flex items-center gap-3 mt-3 px-10 py-3 bg-blue-600 text-white rounded-xl"><ion-icon name="pricetags-outline"></ion-icon> Diskon</a>
+            <a href="TransaksiAdmin.html" class="flex items-center gap-3 mt-3 px-10 py-3 hover:bg-blue-100 rounded-xl hover:text-blue-700"><ion-icon name="newspaper-outline"></ion-icon> Transaksi</a>
+            <a href="PenggunaAdmin.html" class="flex items-center gap-3 mt-3 px-10 py-3 hover:bg-blue-100 rounded-xl hover:text-blue-700"><ion-icon name="newspaper-outline"></ion-icon> Pengguna</a>
+            <a href="" class="flex items-center gap-3 mt-3 px-10 py-3 hover:bg-blue-100 rounded-xl hover:text-blue-700"><ion-icon name="log-out-outline"></ion-icon> Logout</a>
+          </div>
+        </div>
+      </aside>
+
+<!--CONTENT-->
+
+      <div id="content" class="grow p-10">
+        <h1 class="text-5xl font-bold">Daftar Diskon</h1>
+        <div class="flex justify-start mb-3 mt-10">
+            <input id="toggleButton" class="bg-orange-400 cursor-pointer hover:bg-orange-600 h-8 w-20 border border-orange-400 rounded-lg text-white" type="button" value="Tambah">
+        </div>
+        <div class="flex flex-col">
+            <div class="sm:-mx-6 lg:-mx-8">
+                <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+                    <div>
+                        <table class="min-w-full text-start text-sm font-semibold border border-blue-600 text-surface dark:text-white">
+                            <thead class="bg-blue-600 border-b border-blue-600 font-semibold text-white">
+                                <tr>
+                                    <th scope="col" class="px-6 py-4 border border-blue-600">Nomor</th>
+                                    <th scope="col" class="px-6 py-4 border border-blue-600">Kode Diskon</th>
+                                    <th scope="col" class="px-6 py-4 border border-blue-600">Judul</th>
+                                    <th scope="col" class="px-6 py-4 border border-blue-600">Persentase</th>
+                                    <th scope="col" class="px-6 py-4 border border-blue-600">Waktu Dimulai</th>
+                                    <th scope="col" class="px-6 py-4 border border-blue-600">Waktu Berakhir</th>
+                                    <th scope="col" class="px-6 py-4 border border-blue-600">Aktif</th>
+                                    <th scope="col" class="px-6 py-4 border border-blue-600">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-blue-600 dark:border-white/10">
+                                    <td class="whitespace-nowrap px-6 py-4 border border-blue-600 font-medium">1</td>
+                                    <td class="whitespace-nowrap px-6 py-4 border border-blue-600">CRV08</td>
+                                    <td class="whitespace-nowrap px-6 py-4 border border-blue-600">Idul Adha</td>
+                                    <td class="whitespace-nowrap px-6 py-4 border border-blue-600">10%</td>
+                                    <td class="whitespace-nowrap px-6 py-4 border border-blue-600">13 Juni 2024</td>
+                                    <td class="whitespace-nowrap px-6 py-4 border border-blue-600">23 Juni 2024</td>
+                                    <td class="whitespace-nowrap px-6 py-4 border border-blue-600">Aktif</td>
+                                    <td class="whitespace-nowrap px-6 py-4 border border-blue-600">
+                                        <div class="flex justify-start gap-3">
+                                            <button>
+                                                <ion-icon class="h-6 w-6 text-orange-400 hover:text-orange-600" name="reader-outline"></ion-icon>
+                                            </button>
+                                            <button>
+                                                <ion-icon class="h-6 w-6 text-red-400 hover:text-red-600" name="trash-outline"></ion-icon>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-blue-600 dark:border-white/10">
+                                  <td class="whitespace-nowrap px-6 py-4 border border-blue-600 font-medium">2</td>
+                                  <td class="whitespace-nowrap px-6 py-4 border border-blue-600">BBC09</td>
+                                  <td class="whitespace-nowrap px-6 py-4 border border-blue-600">Imlek</td>
+                                  <td class="whitespace-nowrap px-6 py-4 border border-blue-600">5%</td>
+                                  <td class="whitespace-nowrap px-6 py-4 border border-blue-600">05 Februari 2024</td>
+                                  <td class="whitespace-nowrap px-6 py-4 border border-blue-600">15 Februari 2024</td>
+                                  <td class="whitespace-nowrap px-6 py-4 border border-blue-600">Non-Aktif</td>
+                                  <td class="whitespace-nowrap px-6 py-4 border border-blue-600">
+                                      <div class="flex justify-start gap-3">
+                                          <button>
+                                              <ion-icon class="h-6 w-6 text-orange-400 hover:text-orange-600" name="reader-outline"></ion-icon>
+                                          </button>
+                                          <button>
+                                              <ion-icon class="h-6 w-6 text-red-400 hover:text-red-600" name="trash-outline"></ion-icon>
+                                          </button>
+                                      </div>
+                                  </td>
+                                </tr>
+                                <tr class="border-b border-blue-600">
+                                  <td class="whitespace-nowrap px-6 py-4 border border-blue-600 font-medium">3</td>
+                                  <td class="whitespace-nowrap px-6 py-4 border border-blue-600">KVK71</td>
+                                  <td class="whitespace-nowrap px-6 py-4 border border-blue-600">National Day</td>
+                                  <td class="whitespace-nowrap px-6 py-4 border border-blue-600">15%</td>
+                                  <td class="whitespace-nowrap px-6 py-4 border border-blue-600">17 Agustus 2024</td>
+                                  <td class="whitespace-nowrap px-6 py-4 border border-blue-600">27 Agustus 2024</td>
+                                  <td class="whitespace-nowrap px-6 py-4 border border-blue-600">Non- Aktif</td>
+                                  <td class="whitespace-nowrap px-6 py-4 border border-blue-600">
+                                      <div class="flex justify-start gap-3">
+                                          <button>
+                                              <ion-icon class="h-6 w-6 text-orange-400 hover:text-orange-600" name="reader-outline"></ion-icon>
+                                          </button>
+                                          <button>
+                                              <ion-icon class="h-6 w-6 text-red-400 hover:text-red-600" name="trash-outline"></ion-icon>
+                                          </button>
+                                      </div>
+                                  </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+
+  </div>
+
+    <script>
+        document.getElementById('toggleButton').addEventListener('click', function() {
+            var sidebar = document.getElementById('sidebar');
+            sidebar.classList.add('active');
+        });
+
+        document.getElementById('closeButton').addEventListener('click', function() {
+            var sidebar = document.getElementById('sidebar');
+            sidebar.classList.remove('active');
+        });
+    </script>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>
