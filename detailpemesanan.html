@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FONTS -->
+    <link rel="stylesheet" href="./public/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <title>Detail Pemesanan</title>
+</head>
+<body class="">
+    <header class="bg-white w-full py-5 shadow">
+        <nav class="flex justify-between items-center w-full px-10 py-0">
+            <div>
+                <h1 class="text-blue-600 italic text-2xl font-bold">TicketXpress</h1>
+            </div>
+            <div
+                class="nav-links duration-500 md:static absolute bg-white md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto  w-full flex items-center px-5">
+                <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
+                    <li>
+                        <a class="hover:text-gray-500" href="#">Beranda</a>
+                    </li>
+                    <li>
+                        <a class="hover:text-gray-500" href="#">Keunggulan</a>
+                    </li>
+                    <li>
+                        <a class="hover:text-gray-500" href="#">Diskon</a>
+                    </li>
+                    <li>
+                        <a class="hover:text-gray-500" href="#">Cek Jadwal</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="flex items-center gap-6">
+                <div
+                    class="bg-white flex items-center text-orange-400 px-5 py-2 rounded-full hover:bg-gray-100 border border-orange-400">
+                    Hi, Erin!
+                    <img src="./public/Ellipse 56.svg">
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="flex">
+    <div class="py-8 px-14 w-[70%]">
+        <h1 class="text-left font-semibold text-black sm:text-xl">DETAIL PEMESANAN</h1>
+    <div class="bg-white shadow-xl rounded-xl">
+        <form action="#" class="mb-0 mt-6 space-y-4 rounded-lg p-4 sm:p-6 lg:p-8">
+            <div>
+                <label for="Nama"></label>
+                <input
+                class="w-full rounded-lg border-2 border-gray-200 p-3 text-sm"
+                placeholder="Nama Lengkap Sesuai KTP/Paspor/SIM"
+                type="text">
+            </div>
+            <div>
+                <label class="sr-only" for="phone">Phone</label>
+                <input
+                  class="w-full rounded-lg border-2 border-gray-200 p-3 text-sm"
+                  placeholder="Nomor Telepon"
+                  type="tel"
+                  id="phone"
+                />
+              </div>
+              <div>
+                <label for="email" class="sr-only">Email</label>
+
+                <div class="relative">
+                    <input type="email" class="w-full rounded-lg border-2 border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                        placeholder="Enter email" />
+
+                    <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="size-4 text-gray-400" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
+                        </svg>
+                    </span>
+                </div>
+            </div>
+        </form>
+    </div>
+    <h2 class="py-7 font-semibold text-xl">
+        DETAIL PENUMPANG 
+    </h2>
+    <div class="bg-white shadow-xl ">
+        <form action="#" class="mb-0  space-y-0 rounded-lg p-4 sm:p-6 lg:p-8">
+            <div>
+                <h1 class="text-blue-400 font-medium text-lg py-3">Isi Detail Penumpang 1</h1>
+                <label for="name">Informasi Penumpang</label>
+                <input
+                  class="w-full rounded-lg border-2 border-gray-200 p-3 text-sm"
+                  placeholder="Nama Lengkap Sesuai KTP/Paspor/SIM "
+                  type="text"
+                  id="name"
+                />
+            </div>
+            <div>
+                <label class=""" for="number">Nomor NIK</label>
+
+                <input
+                  class="w-full rounded-lg border-2 border-gray-200 p-3 text-sm"
+                  placeholder="Nomor NIK"
+                  type="text"
+                  id="name"
+                />
+            </div>
+        </form>
+    </div>
+    <button type="submit"
+    class="block w-full rounded-lg bg-orange-400 px-5 py-4 text-sm font-medium text-white mt-7 mb-">
+    Tambah Penumapang
+    </button>
+    </div>
+    <div class="w-[30%] px-8">
+        <div class="container bg-white shadow-xl p-6 rounded-xl mx-auto my-24">
+            <div class="flex items-center justify-between"> 
+                <p class="rounded-lg text-lg bg-blue-500 py-2 px-4 font-semibold text-white">Pergi</p>
+                <p class="text-lg">2024-08-05</p>
+                <div class="w-2 aspect-square rounded-full bg-zinc-200"></div>
+                <p class="text-lg">05.50 - 08.10</p>
+            </div>
+            <div class="flex items-center mb-4">
+                <p class=" flex text-center">Stasiun Surabaya</p>
+                <div class="w-2 h-2 aspect-square rounded-full bg-zinc-200"></div>
+                <div class="w-[30%] border-t"></div>
+                <div class="w-2 h-2 aspect-square rounded-full bg-zinc-200"></div>
+                <p class="flex text-center">Stasiun Jombang</p>
+            </div>
+            <div class="flex items-center">
+                <div class="w-[100%] p-4 text-left">
+                    <p class="mb-3">Pasundan 239</p>
+                    <p class="mb-3">Jumlah Penumpang</p>
+                    <p class="mb-3">Harga Pertiket</p>
+                </div>
+                <div class="w[100%] p-4 text-right">
+                    <p class="mb-3">Ekonomi</p>
+                    <p class="mb-3"> 2 Orang</p>
+                    <p class="mb-3">IDR </p>
+
+                </div>
+            </div>
+            <div>
+                <hr class="w-full border-t-2">
+            </div>
+            <div class="flex items-center">
+                <div class="w-[100%] p-4 text-left">
+                    <p class="mb-3">Harga Total</p>
+                </div>
+                <div class="w[100%] p-4 text-right">
+                    <p class="mb-3">IDR</p>
+                </div>
+            </div>
+
+        <button type="submit"
+        class="block w-full rounded-lg bg-orange-400 px-5 py-4 text-sm font-medium text-white mt-7 mb-7">
+        Tambah Penumapang
+        </button>
+        </div>
+    </div>
+    </div>
+    <footer class="bg-blue-500">
+        <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
+          <div class="sm:flex sm:items-center sm:justify-between">
+            <p class="mt-4 text-center text-sm text-white lg:mt-0 lg:text-right">
+              Copyright &copy; 2022. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </footer>
+</body>
+</html>
