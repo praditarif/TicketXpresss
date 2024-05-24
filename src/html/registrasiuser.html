@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FONTS -->
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <title>Registrasi</title>
+</head>
+
+<body class="h-screen">
+    <header class="bg-white w-full py-5 shadow fixed top-0">
+        <nav class="flex justify-between items-center w-full px-10 py-0">
+            <div>
+                <h1 class="text-blue-600 italic text-2xl font-bold">TicketXpress</h1>
+            </div>
+            <div
+                class="nav-links duration-500 md:static absolute bg-white md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto  w-full flex items-center px-5">
+                <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
+                    <li>
+                        <a class="hover:text-gray-500" href="#">Beranda</a>
+                    </li>
+                    <li>
+                        <a class="hover:text-gray-500" href="#">Keunggulan</a>
+                    </li>
+                    <li>
+                        <a class="hover:text-gray-500" href="#">Diskon</a>
+                    </li>
+                    <li>
+                        <a class="hover:text-gray-500" href="#">Cek Jadwal</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="flex items-center gap-6">
+                <button class="bg-orange-400 text-white px-5 py-2 rounded-full hover:bg-orange-600">Registrasi</button>
+                <ion-icon onclick="onToggleMenu(this)" name="menu" class="text-3xl cursor-pointer md:hidden"></ion-icon>
+            </div>
+        </nav>
+    </header>
+
+    <script>
+        const navLinks = document.querySelector('.nav-links')
+        function onToggleMenu(e) {
+            e.name = e.name === 'menu' ? 'close' : 'menu'
+            navLinks.classList.toggle('top-[9%]')
+        }
+    </script>
+    <div class="flex justify-center items-center m-auto h-screen w-full object-cover" style="background-image: url(../../public/assets/backgroundlogin.svg);">
+        <div class="bg-white mx-auto px-4 sm:px-6 lg:px-8 rounded-xl mr-16 mt-16" style="padding-block: 1.5rem;">
+            <div class="mx-auto max-w-lg">
+                <h1 class="text-left text-2xl font-bold text-black sm:text-3xl">Daftar</h1>
+
+                <p class="mx-auto mt-4 max-w-md text-left text-gray-500">
+                    Daftarlah sekarang untuk mulai menikmati layanan kami
+                </p>
+
+                <form action="#" class="mb-0 mt-6 space-y-4 rounded-lg p-4 sm:p-6 lg:p-8">
+                    <div>
+                        <label class="sr-only" for="name">Nama Lengkap</label>
+                        <input
+                          class="w-full rounded-lg border-2 border-gray-200 p-3 text-sm"
+                          placeholder="Nama Lengkap "
+                          type="text"
+                          id="name"
+                        />
+                    </div>
+                    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                        <div>
+                            <label class="sr-only" for="name">Name</label>
+                            <input
+                              class="w-full rounded-lg border-2 border-gray-200 p-3 text-sm"
+                              placeholder="Nama Panggilan"
+                              type="text"
+                              id="name"
+                            />
+                          </div>
+                          <div>
+                            <label class="sr-only" for="phone">Phone</label>
+                            <input
+                              class="w-full rounded-lg border-2 border-gray-200 p-3 text-sm"
+                              placeholder="Nomor Telepon"
+                              type="tel"
+                              id="phone"
+                            />
+                          </div>
+                    </div>
+
+                    <div>
+                        <label for="email" class="sr-only">Email</label>
+
+                        <div class="relative">
+                            <input type="email" class="w-full rounded-lg border-2 border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                                placeholder="Enter email" />
+
+                            <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="size-4 text-gray-400" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-6">
+                        <select name="Nomor Identitas" id="NomorIdentitas" class="bg-blue-500 rounded-lg text-white p-3">
+                            <option value="KTP">KTP</option>
+                            <option value="Paspor">Paspor</option>
+                        </select>
+                        <label class="sr-only" for="identitas">Nomor Identitas</label>
+                        <input
+                          class="w-full rounded-lg border-2 border-gray-200 p-3 text-sm"
+                          placeholder="Nomor Identitas"
+                          type="tel"
+                          id="Identitas"
+                        />
+                    </div>
+                    <div>
+                        <label for="password" class="sr-only">Password</label>
+
+                        <div class="relative">
+                            <input type="password" class="w-full rounded-lg border-2 border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                                placeholder="Password" />
+
+                            <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="size-4 text-gray-400" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="password" class="sr-only">Password</label>
+
+                        <div class="relative">
+                            <input type="password" class="w-full rounded-lg border-2 border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                                placeholder="Confirm Password" />
+
+                            <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="size-4 text-gray-400" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+
+                    <button type="submit"
+                        class="block w-full rounded-lg bg-orange-400 px-5 py-3 text-sm font-medium text-white">
+                        Registrasi
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- FONTS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../styles/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
@@ -14,11 +14,11 @@
     <title>Traintrack</title>
 </head>
 
-<body class="h-screen font-outfit">
+<body class="h-screen">
     <header class="bg-white w-full py-5 shadow">
         <nav class="flex justify-between items-center w-full px-10 py-0">
             <div>
-                <h1 class="text-blue-600 italic text-2xl font-bold font-texturina">TicketXpress</h1>
+                <h1 class="text-blue-600 italic text-2xl font-bold">TicketXpress</h1>
             </div>
             <div
                 class="nav-links duration-500 md:static absolute bg-white md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto  w-full flex items-center px-5">
@@ -41,7 +41,7 @@
                 <div
                     class="bg-white flex items-center text-orange-400 px-5 py-2 rounded-full hover:bg-gray-100 border border-orange-400">
                     Hi, Erin!
-                    <img src="Ellipse 56.svg">
+                    <img src="./public/Ellipse 56.svg">
                 </div>
             </div>
         </nav>
@@ -52,6 +52,7 @@
             <label class="flex flex-col">
                 Asal
                 <div class="flex gap-3 border-2 border-zinc-500 w-fit p-3 rounded-xl">
+                    <img src="./public/location1.svg" alt="" class="w-6 aspect-square">
                     <input type="text" placeholder="Stasiun Surabaya" class="outline-none">
                 </div>
             </label>
@@ -64,9 +65,6 @@
             </div>
         </div>
     </div>
-
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
     <script>
         const navLinks = document.querySelector('.nav-links')
