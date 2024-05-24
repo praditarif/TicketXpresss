@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Texturina:ital,opsz,wght@0,12..72,100..900;1,12..72,100..900&display=swap" rel="stylesheet">
+    <title>Login Admin</title>
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+    <nav class="flex justify-between items-center shadow-md py-7 px-12 fixed top-0 left-0 w-full z-10 bg-white">
+        <h1 class="font-bold italic text-3xl text-blue-500 font-texturina">TicketXpress</h1>
+    </nav>
+    <div class="flex items-center m-auto">
+        <img src="../../public/assets/Admin Login.png" alt="Deskripsi Gambar" class="h-dvh">
+        <div class="flex-col ju text-center w-[390x] py-14 px-14 mr-96 mt-20 rounded-md shadow-xl font-outfit">
+            <h1 class="flex text-4xl font-semibold mb-4">Admin</h1>
+            <p class="flex text-base justify-between text-gray-600 pb-14">Akses Dashboard Admin, jika Anda seorang penumpang, mohon kembali</p>
+            <form class="flex flex-col gap-5">
+                <div class="border px-4 py-2 border-gray-300 rounded-md flex items-center">
+                    <input type="email" name="username" id="username" placeholder="Username" class="flex-grow px-2 py-1 border-none focus:outline-none">
+                </div>
+                <div class="border px-4 py-2 border-gray-300 rounded-md flex items-center">
+                    <input type="password" name="password" id="password" placeholder="Password" class="flex-grow px-2 py-1 border-none focus:outline-none">
+                    <button type="button" class="ml-2 flex items-center" id="togglePassword">
+                        <ion-icon id="toggleIcon" name="eye-outline"></ion-icon>
+                    </button>
+                </div>
+            </form>
+            <div  onclick="location.href='BerandaAdmin.html'" class="mt-10 bg-orange-400 rounded-lg text-white h-10 text-xl flex justify-center hover:bg-orange-500 cursor-pointer">
+                <button>Login</button>
+            </div>
+            
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('togglePassword').addEventListener('click', function () {
+            const passwordField = document.getElementById('password');
+            const passwordFieldType = passwordField.getAttribute('type');
+            const toggleIcon = document.getElementById('toggleIcon');
+        
+            if (passwordFieldType === 'password') {
+                passwordField.setAttribute('type', 'text');
+                toggleIcon.setAttribute('name', 'eye-off-outline'); 
+            } else {
+                passwordField.setAttribute('type', 'password');
+                toggleIcon.setAttribute('name', 'eye-outline'); 
+            }
+        });
+    </script>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>
