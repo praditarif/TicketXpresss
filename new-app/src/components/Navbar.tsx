@@ -3,7 +3,7 @@ import Button from './Button';
 
 export default function Navbar() {
   return (
-    <nav className="flex justify-between items-center w-full px-10 py-4 shadow-lg fixed top-0 left-0 bg-white">
+    <nav className="flex justify-between items-center w-full px-10 py-4 shadow-lg fixed top-0 left-0 bg-white z-50">
       <h1 className="text-blue-ocean font-texturina italic font-bold text-2xl w-1/5 -mt-1.5">TicketXpress</h1>
 
       <ul className="flex items-center gap-10">
@@ -11,13 +11,13 @@ export default function Navbar() {
           <Link className="hover:text-gray-500" href="/">Beranda</Link>
         </li>
         <li>
-          <Link className="hover:text-gray-500" href="/#keunggulan">Keunggulan</Link>
+          <Link className="hover:text-gray-500" href="#keunggulan">Keunggulan</Link>
         </li>
         <li>
-          <Link className="hover:text-gray-500" href="/#diskon">Diskon</Link>
+          <Link className="hover:text-gray-500" href="#diskon">Diskon</Link>
         </li>
         <li>
-          <Link className="hover:text-gray-500" href="/#cek-jadwal">Cek Jadwal</Link>
+          <Link className="hover:text-gray-500" href="#cek-jadwal">Cek Jadwal</Link>
         </li>
       </ul>
 
