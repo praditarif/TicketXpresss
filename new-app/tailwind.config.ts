@@ -6,9 +6,16 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    fontFamily:  {
-      outfit: ['var(--font-outfit)', 'sans-serif'],
-      texturina: ['var(--font-texturina)', 'serif'],
+    extend: {
+      fontFamily:  {
+        outfit: ['var(--font-outfit)'],
+        texturina: ['var(--font-texturina)'],
+      },
+      colors: {
+        'blue-ocean': '#266FDC',
+        'dark-orange': '#EC7824',
+        'light-orange': '#FF984E',
+      },
     },
   },
   plugins: [],

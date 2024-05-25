@@ -13,9 +13,9 @@ const outfit = Outfit({
 
 const texturina = Texturina({
   subsets: ['latin'],
-  weight: '700',
   display: 'swap',
   variable: '--font-texturina',
+  adjustFontFallback: false,
 });
 
 export const metadata: Metadata = {
