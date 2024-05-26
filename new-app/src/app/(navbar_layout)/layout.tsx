@@ -1,7 +1,7 @@
 import Navbar from '@/components/Navbar';
 
 interface Props {
-  children: ChildNode,
+  children: React.ReactNode,
 }
 
 export default function Layout({ children }: Readonly<Props>) {

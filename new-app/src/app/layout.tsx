@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 
 import { Outfit, Texturina } from 'next/font/google';
 
+import SWRConfig from './SWRConfig';
+
 import './globals.css';
 
 const outfit = Outfit({
@@ -30,7 +32,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${outfit.variable} ${texturina.variable}`}>{children}</body>
+      <body className={`${outfit.variable} ${texturina.variable}`}>
+        <SWRConfig>
+          {children}
+        </SWRConfig>
+      </body>
     </html>
   );
 }
