@@ -1,9 +1,15 @@
+'use client';
+
 import { IoClose, IoCreate } from 'react-icons/io5';
+import useSWR from 'swr';
 
 import Button from '@/components/Button';
+import Loading from '@/components/Loading';
 import Table from '@/components/Table';
 
 export default function Page() {
+  const { data, isLoading } = useSWR('/admin/schedule/ticket');
+
   return (
     <main className="p-10">
       <header>
@@ -12,16 +18,20 @@ export default function Page() {
       </header>
 
       <section className="mt-8">
-        <Table
-          number
-          header={['Id', 'Kereta', 'Harga', 'Terjual', 'Tersisa', 'Aksi',]}
-          data={[
-            {
-              id_tiket: "6A2WHIBY",
-              kereta: "Argo Lawu",
-              harga: 12000,
-              terjual: 0,
-              sisa: 200,
+        {isLoading ? (
+          <div className="h-[70dvh] w-full grid place-items-center">
+            <Loading />
+          </div>
+        ) : (
+          <Table
+            number
+            header={['Id', 'Kereta', 'Harga', 'Terjual', 'Tersisa', 'Aksi',]}
+            data={data.payload.map((data: any) => ({
+              id_tiket: data.id_tiket,
+              kereta: data.kereta,
+              harga: data.harga,
+              terjual: data.terjual,
+              sisa: data.sisa,
               aksi: (
                 <div className="space-x-2">
                   <Button variant="secondary" className="rounded-md aspect-square !p-1">
@@ -32,64 +42,10 @@ export default function Page() {
                     <IoClose className="text-lg" />
                   </Button>
                 </div>
-              ),
-            },
-            {
-              id_tiket: "E8FCPKXB",
-              kereta: "Argo Bromo",
-              harga: 12000,
-              terjual: 0,
-              sisa: 200,
-              aksi: (
-                <div className="space-x-2">
-                  <Button variant="secondary" className="rounded-md aspect-square !p-1">
-                    <IoCreate className="text-lg" />
-                  </Button>
-
-                  <Button variant="secondary" className="rounded-md aspect-square !p-1 !border-red-500 text-red-500 bg-red-100">
-                    <IoClose className="text-lg" />
-                  </Button>
-                </div>
-              ),
-            },
-            {
-              id_tiket: "Q4YL5SYE",
-              kereta: "Gajayana",
-              harga: 12000,
-              terjual: 0,
-              sisa: 200,
-              aksi: (
-                <div className="space-x-2">
-                  <Button variant="secondary" className="rounded-md aspect-square !p-1">
-                    <IoCreate className="text-lg" />
-                  </Button>
-
-                  <Button variant="secondary" className="rounded-md aspect-square !p-1 !border-red-500 text-red-500 bg-red-100">
-                    <IoClose className="text-lg" />
-                  </Button>
-                </div>
-              ),
-            },
-            {
-              id_tiket: "Y0XY9L81",
-              kereta: "Taksaka",
-              harga: 12000,
-              terjual: 200,
-              sisa: 0,
-              aksi: (
-                <div className="space-x-2">
-                  <Button variant="secondary" className="rounded-md aspect-square !p-1">
-                    <IoCreate className="text-lg" />
-                  </Button>
-
-                  <Button variant="secondary" className="rounded-md aspect-square !p-1 !border-red-500 text-red-500 bg-red-100">
-                    <IoClose className="text-lg" />
-                  </Button>
-                </div>
-              ),
-            },
-          ]}
-        />
+              )
+            }))}
+          />
+        )}
       </section>
     </main>
   );
