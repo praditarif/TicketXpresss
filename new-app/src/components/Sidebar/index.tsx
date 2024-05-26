@@ -17,8 +17,8 @@ export default function Sidebar() {
   return (
     <aside className="h-dvh w-full p-8 border-r border-zinc-300 flex flex-col gap-8 sticky top-0">
       <h1 className="flex flex-col">
-        <span className="font-texturina italic text-2xl font-bold text-blue-ocean">TicketXpress</span>
-        <span className="text-xl font-semibold text-dark-orange">MyAdmin.</span>
+        <span className="font-alegreya italic text-3xl text-blue-ocean">TicketXpress</span>
+        <span className="text-xl font-semibold text-dark-orange -mt-1">MyAdmin.</span>
       </h1>
 
       <nav>

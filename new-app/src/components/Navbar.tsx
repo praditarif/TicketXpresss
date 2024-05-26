@@ -4,7 +4,7 @@ import Button from './Button';
 export default function Navbar() {
   return (
     <nav className="flex justify-between items-center w-full px-10 py-4 shadow-lg fixed top-0 left-0 bg-white z-50">
-      <h1 className="text-blue-ocean font-texturina italic font-bold text-2xl w-1/5 -mt-1.5">TicketXpress</h1>
+      <h1 className="text-blue-ocean font-alegreya italic text-3xl w-1/5 -mt-1.5">TicketXpress</h1>
 
       <ul className="flex items-center gap-10">
         <li>

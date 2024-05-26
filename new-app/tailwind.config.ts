@@ -9,7 +9,7 @@ const config: Config = {
     extend: {
       fontFamily:  {
         outfit: ['var(--font-outfit)'],
-        texturina: ['var(--font-texturina)'],
+        alegreya: ['var(--font-alegreya)'],
       },
       colors: {
         'blue-ocean': '#266FDC',

@@ -129,7 +129,7 @@ export default function Home() {
 
       <footer className="bg-blue-500 rounded-t-[3rem] mt-20 p-14">
         <div className="flex justify-between">
-          <h1 className="text-white font-texturina text-4xl font-bold italic">TicketXpress</h1>
+          <h1 className="text-white font-alegreya text-4xl italic">TicketXpress</h1>
 
           <div className="text-left">
             <p className="text-lg font-medium text-white">Aplikasi</p>

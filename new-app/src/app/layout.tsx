@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import { Outfit, Texturina } from 'next/font/google';
+import { Outfit, Alegreya } from 'next/font/google';
 
 import SWRConfig from './SWRConfig';
 
@@ -13,11 +13,11 @@ const outfit = Outfit({
   variable: '--font-outfit',
 });
 
-const texturina = Texturina({
+const alegreya = Alegreya({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-texturina',
-  adjustFontFallback: false,
+  weight: '700',
+  variable: '--font-alegreya',
 });
 
 export const metadata: Metadata = {
@@ -32,7 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${outfit.variable} ${texturina.variable}`}>
+      <body className={`${outfit.variable} ${alegreya.variable}`}>
         <SWRConfig>
           {children}
         </SWRConfig>
