@@ -1,5 +1,6 @@
 'use client';
 
+import fetcher from '@/utils/fetcher';
 import type { SWRConfiguration } from 'swr';
 
 import { SWRConfig as Config } from 'swr';
@@ -10,11 +11,7 @@ interface Props {
 
 export default function SWRConfig({ children }: Props) {
   const config: SWRConfiguration = {
-    fetcher: (url, init) => fetch(process.env.NEXT_PUBLIC_API_HOST + url, {
-      ...init,
-      credentials: 'include',
-    })
-      .then((response) => response.json()),
+    fetcher: fetcher('GET'),
   }
 
   return (

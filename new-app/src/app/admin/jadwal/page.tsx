@@ -1,17 +1,18 @@
 'use client';
 
+import { useState } from 'react';
+import { IoClose } from 'react-icons/io5';
 import useSWR from 'swr';
-import { IoClose, IoCreate } from 'react-icons/io5';
 
+import ActionButton from '@/components/ActionButton';
 import Button from '@/components/Button';
-import Table from '@/components/Table';
 import Loading from '@/components/Loading';
-
-import useSideArea from '@/hooks/useSideArea';
+import Table from '@/components/Table';
+import AddForm from './AddForm';
 
 export default function Page() {
+  const [state, setState] = useState(false);
   const { data, isLoading } = useSWR('/admin/schedule');
-  const { setState, SideArea } = useSideArea();
 
   return (
     <>
@@ -19,7 +20,7 @@ export default function Page() {
         <header>
           <h1 className="text-3xl font-bold">Daftar Jadwal</h1>
 
-          <Button onClick={() => setState(true)} variant="primary" className="rounded-lg mt-4">
+          <Button variant="primary" className="rounded-lg mt-4" onClick={() => setState(true)}>
             Tambah
           </Button>
         </header>
@@ -32,29 +33,41 @@ export default function Page() {
           ) : (
             <Table
               number
-              header={['Id', 'Kereta', 'Tanggal', 'Status', 'Pemberhentian', 'Rute', 'Aksi']}
+              header={['Id', 'Kereta', 'Tanggal', 'Status', 'Pemberhentian', 'Rute', 'Hapus']}
               data={data.payload.map((data: any) => ({
-                ...data,
+                id: data.id_jadwal,
+                kereta: data.kereta,
+                tanggal: new Date(data.tanggal).toLocaleString(),
+                status: (
+                  <ActionButton
+                    method="PATCH"
+                    routeAction={`/admin/schedule/${data.id_jadwal}/status`}
+                    revalidateRoute="/admin/schedule"
+                    className="border-dark-orange text-dark-orange bg-dark-orange/10"
+                  >
+                    {data.status}
+                  </ActionButton>
+                ),
+                pemberhentian_terakhir: data.pemberhentian_terakhir,
+                rute: data.rute,
                 aksi: (
-                  <div className="space-x-2">
-                    <Button variant="secondary" className="rounded-md aspect-square !p-1">
-                      <IoCreate className="text-lg" />
-                    </Button>
-
-                    <Button variant="secondary" className="rounded-md aspect-square !p-1 !border-red-500 text-red-500 bg-red-100">
-                      <IoClose className="text-lg" />
-                    </Button>
-                  </div>
+                  <ActionButton
+                    routeAction={`/admin/schedule/${data.id_jadwal}`}
+                    method="DELETE"
+                    revalidateRoute="/admin/schedule"
+                    className="border-red-500 text-red-500 bg-red-100"
+                  >
+                    <IoClose className="text-lg" />
+                  </ActionButton>
                 )
-              }))}
+              }
+              ))}
             />
           )}
         </section>
       </main>
 
-      <SideArea>
-        <div>hello world</div>
-      </SideArea>
+      <AddForm state={state} handler={setState} />
     </>
   );
 }

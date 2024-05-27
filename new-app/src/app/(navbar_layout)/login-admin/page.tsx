@@ -2,18 +2,21 @@
 
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import useSWRMutation from 'swr/mutation';
 
 import Button from '@/components/Button';
 import Input from '@/components/Input';
-import useMutation from '@/hooks/useMutation';
+
+import fetcher from '@/utils/fetcher';
 
 export default function page() {
   const [error, setError] = useState(false);
-  const { trigger, data } = useMutation('/admin/login', 'POST');
+  const { trigger, data, isMutating } = useSWRMutation('/admin/login', fetcher('POST'));
   const router = useRouter();
 
   useEffect(() => {
     if (data && data.code === 200) {
+      localStorage.setItem('request_token', data.payload.token);
       router.push('/admin');
     } else {
       setError(data?.message ?? false);
@@ -69,7 +72,9 @@ export default function page() {
           {error && <p className="text-sm text-red-500">{error}</p>}
         </div>
 
-        <Button variant="primary" type="submit" className="rounded-lg">Login</Button>
+        <Button variant="primary" type="submit" className="rounded-lg" disabled={isMutating}>
+          {isMutating ? 'Loading...' : 'Login'}
+        </Button>
       </form>
     </main>
   );

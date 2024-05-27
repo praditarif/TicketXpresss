@@ -1,10 +1,12 @@
+import { memo } from 'react';
+
 interface Props {
   header: string[],
   data: Array<{ [index: string]: any }>,
   number?: boolean,
 }
 
-export default function Table({ header, data, number }: Readonly<Props>) {
+function Table({ header, data, number }: Readonly<Props>) {
   const flattenData = data.map((data) => Object.entries(data));
 
   return (
@@ -25,11 +27,11 @@ export default function Table({ header, data, number }: Readonly<Props>) {
       </thead>
       <tbody>
         {flattenData.map((data, i) => (
-          <tr className={`${i % 2 === 1 && 'bg-zinc-100'}`} key={i + Date.now()}>
+          <tr className={`${i % 2 === 1 && 'bg-zinc-100'}`} key={i}>
             {number && <td className="py-2 px-3 text-sm">{i + 1}</td>}
 
-            {data.map((data) => (
-              <td className="py-2 px-3 text-sm" key={data[1] + Date.now()}>{data[1]}</td>
+            {data.map((data, i) => (
+              <td className="py-2 px-3 text-sm" key={i}>{data[1]}</td>
             ))}
           </tr>
         ))}
@@ -37,3 +39,5 @@ export default function Table({ header, data, number }: Readonly<Props>) {
     </table>
   );
 }
+
+export default memo(Table);

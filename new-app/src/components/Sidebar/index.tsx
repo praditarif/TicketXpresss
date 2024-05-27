@@ -1,8 +1,5 @@
-'use client'
-
 import {
   IoHome,
-  IoLogOut,
   IoNewspaper,
   IoPerson,
   IoPricetag,
@@ -11,7 +8,7 @@ import {
 } from 'react-icons/io5';
 
 import Link from './Link';
-import Button from '../Button';
+import ProfileCard from './ProfileCard';
 
 export default function Sidebar() {
   return (
@@ -60,13 +57,7 @@ export default function Sidebar() {
         </ul>
       </nav>
 
-      <div className="mt-auto flex justify-between items-center bg-blue-ocean/20 p-2 border border-blue-ocean rounded-lg">
-          <p className="text-blue-ocean font-semibold text-lg ml-3">Hai, Attar!</p>
-        
-        <Button variant="secondary" type="button" className="rounded-md aspect-square !p-2 !text-white !bg-blue-ocean !border-none">
-          <IoLogOut className="!text-2xl" />
-        </Button>
-      </div>
+      <ProfileCard />
     </aside>
   );
 }

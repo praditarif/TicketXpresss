@@ -20,7 +20,7 @@ export default function Button({
 
   const baseStyling = 'px-4 py-2';
   const buttonTheme = variant === 'primary'
-    ? 'bg-dark-orange text-white'
+    ? 'bg-dark-orange text-white disabled:bg-dark-orange/70'
     : 'bg-white text-dark-orange border-dark-orange border';
 
   const onNavigate = () => router.push(href as string);

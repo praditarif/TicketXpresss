@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 
 import { Outfit, Alegreya } from 'next/font/google';
+import { Toaster } from 'react-hot-toast';
 
 import SWRConfig from './SWRConfig';
 
@@ -35,6 +36,16 @@ export default function RootLayout({
       <body className={`${outfit.variable} ${alegreya.variable}`}>
         <SWRConfig>
           {children}
+          <Toaster
+            position="bottom-right"
+            toastOptions={{
+              duration: 4000,
+              style: {
+                backgroundColor: '#266FDC',
+                color: 'white',
+              },
+            }}
+          />
         </SWRConfig>
       </body>
     </html>
