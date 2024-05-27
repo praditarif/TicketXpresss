@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { IoClose } from 'react-icons/io5';
+import Link from 'next/link';
 import useSWR from 'swr';
 
 import ActionButton from '@/components/ActionButton';
@@ -12,17 +13,49 @@ import AddForm from './AddForm';
 
 export default function Page() {
   const [state, setState] = useState(false);
+  const [map, setMap] = useState(false);
   const { data, isLoading } = useSWR('/admin/schedule');
 
   return (
     <>
       <main className="p-10">
+        {map && (
+          <figure>
+            <button onClick={() => setMap(false)}>
+              <IoClose className="text-2xl" />
+            </button>
+
+            <div className={`duration-200 ${state ? 'w-3/4' : 'w-full'}`}>
+              <img
+                src="/svg/map.svg"
+                alt="Rute kereta Jawa Timur"
+                className='mx-auto'
+              />
+            </div>
+
+            <figcaption className="sr-only">Rute kereta Jawa Timur</figcaption>
+          </figure>
+        )}
+
         <header>
           <h1 className="text-3xl font-bold">Daftar Jadwal</h1>
 
-          <Button variant="primary" className="rounded-lg mt-4" onClick={() => setState(true)}>
+          <Button variant="primary" className="rounded-lg mt-4" onClick={() => setState(!state)}>
             Tambah
           </Button>
+
+          <p className="mt-4">
+            Perhatikan{' '}
+            <Button
+              variant="secondary"
+              type="button"
+              className="!py-0.5 !px-2 rounded-md !bg-orange-100"
+              onClick={() => setMap(!map)}
+            >
+              peta
+            </Button>{' '}
+            terlebih dahulu agar lebih mudah menentukan rute jadwal
+          </p>
         </header>
 
         <section className="mt-8">
