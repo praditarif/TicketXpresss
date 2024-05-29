@@ -8,7 +8,7 @@ import {
 } from 'react-icons/io5';
 
 import Link from './Link';
-import ProfileCard from './ProfileCard';
+import ProfileCard from '../ProfileCard';
 
 export default function Sidebar() {
   return (
@@ -57,7 +57,7 @@ export default function Sidebar() {
         </ul>
       </nav>
 
-      <ProfileCard />
+      <ProfileCard logoutRoute="/admin/logout" redirectRoute="/login-admin" />
     </aside>
   );
 }

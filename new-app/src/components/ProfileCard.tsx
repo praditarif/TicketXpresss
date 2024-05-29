@@ -7,26 +7,31 @@ import useSWRMutation from 'swr/mutation';
 
 import Button from '@/components/Button';
 import fetcher from '@/utils/fetcher';
-
 import useLoggedProfile from '@/hooks/useLoggedProfile';
 
-export default function ProfileCard() {
-  const { trigger, data, isMutating } = useSWRMutation('/admin/logout', fetcher('DELETE'));
-  const user = useLoggedProfile();
+interface Prop {
+  logoutRoute: string,
+  redirectRoute: string,
+}
+
+export default function ProfileCard({ logoutRoute, redirectRoute }: Readonly<Prop>) {
+  const { trigger, data } = useSWRMutation(logoutRoute, fetcher('DELETE'));
+  const { user } = useLoggedProfile();
   const route = useRouter();
 
   useEffect(() => {
     if (data && data.code === 200) {
-      route.push('/login-admin');
+      localStorage.removeItem('request_token');
+      route.push(redirectRoute);
     }
   }, [data]);
 
   const handler = () => trigger();
 
   return (
-    <div className="mt-auto flex justify-between items-center bg-blue-ocean/20 p-2 border border-blue-ocean rounded-lg">
-      <p className="text-blue-ocean font-semibold text-lg ml-3">
-        {isMutating ? 'Loading...' : `Hai, ${user.nama}`}
+    <div className="mt-auto flex justify-between items-center bg-blue-ocean/20 gap-4 p-2 border border-blue-ocean rounded-lg">
+      <p className="text-blue-ocean font-semibold text-lg">
+        {user && `Hai, ${user.nama.split(' ')[0]}`}
       </p>
 
       <Button

@@ -1,7 +1,13 @@
+'use client';
+
 import Link from 'next/link';
 import Button from './Button';
+import useLoggedProfile from '@/hooks/useLoggedProfile';
+import ProfileCard from './ProfileCard';
 
 export default function Navbar() {
+  const { user } = useLoggedProfile();
+
   return (
     <nav className="flex justify-between items-center w-full px-10 py-4 shadow-lg fixed top-0 left-0 bg-white z-50">
       <h1 className="text-blue-ocean font-alegreya italic text-3xl w-1/5 -mt-1.5">TicketXpress</h1>
@@ -21,11 +27,15 @@ export default function Navbar() {
         </li>
       </ul>
 
-      <div className="flex justify-end items-center gap-3 w-1/5">
-        <Button href="/login" variant="secondary" className="rounded-full">Login</Button>
-        <Button href="/registrasi" variant="primary" className="rounded-full
+      {user ? (
+        <ProfileCard redirectRoute={`/login${user.role === 'admin' ? '-admin' : ''}`} logoutRoute={`/${user.role}/logout`} />
+      ) : (
+        <div className="flex justify-end items-center gap-3 w-1/5">
+          <Button href="/login" variant="secondary" className="rounded-full">Login</Button>
+          <Button href="/registrasi" variant="primary" className="rounded-full
         ">Registrasi</Button>
-      </div>
+        </div>
+      )}
     </nav>
   )
 }
