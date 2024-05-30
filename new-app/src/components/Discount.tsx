@@ -16,7 +16,7 @@ type Interval = {
   Detik: number,
 }
 
-export default function Ticket({ judul, img, persentase, waktu_berakhir }: Readonly<Props>) {
+export default function Discount({ judul, img, persentase, waktu_berakhir }: Readonly<Props>) {
   const [countDown, setCountDown] = useState<Interval>({
     Hari: 0,
     Jam: 0,

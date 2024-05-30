@@ -25,6 +25,11 @@ export default function Navbar() {
         <li>
           <Link className="hover:text-gray-500" href="#cek-jadwal">Cek Jadwal</Link>
         </li>
+        {user && (
+          <li>
+            <Link className="hover:text-gray-500" href="/app">Aplikasi</Link>
+          </li>
+        )}
       </ul>
 
       {user ? (

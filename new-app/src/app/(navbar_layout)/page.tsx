@@ -1,11 +1,16 @@
+'use client';
+
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 import Button from '@/components/Button';
 import Input from '@/components/Input';
 import ScheduleSearcher from '@/components/ScheduleSearcher';
-import Ticket from '@/components/Ticket';
+import Discount from '@/components/Discount';
 
 export default function Home() {
+  const router = useRouter();
+
   const cover = 'https://images.unsplash.com/photo-1523667071851-4fda8c8a8dd5?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
 
   const reasons = [
@@ -41,17 +46,23 @@ export default function Home() {
     {
       persentase: 0.15,
       judul: 'Imlek',
-      waktu_berakhir: '2024-05-28T05:00:41.198Z',
+      waktu_berakhir: '2024-06-04T03:42:21.198Z',
       img: 'https://images.unsplash.com/photo-1698925436262-d4de6ef190c8?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     },
     {
       persentase: 0.2,
       judul: 'Kemerdekaan',
-      waktu_berakhir: '2024-05-28T05:00:41.198Z',
+      waktu_berakhir: '2024-06-07T12:36:39.198Z',
       img: 'https://images.unsplash.com/photo-1566409031818-9508be68fc74?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     },
   ];
 
+  const submitHandler = (event: React.SyntheticEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const { departure, destination, date } = event.currentTarget;
+    router.push(`/jadwal?departure=${departure.value}&destination=${destination.value}&date=${date.value}`);
+  }
+  
   return (
     <>
       <main className="mt-12">
@@ -106,7 +117,7 @@ export default function Home() {
           </div>
 
           <div className="flex w-full justify-center gap-12 px-48 mt-12">
-            {discounts.map((discount) => <Ticket key={discount.judul} {...discount} />)}
+            {discounts.map((discount) => <Discount key={discount.judul} {...discount} />)}
           </div>
         </section>
 
@@ -119,7 +130,7 @@ export default function Home() {
             </h1>
 
             <div className="w-4/5 mx-auto">
-              <ScheduleSearcher />
+              <ScheduleSearcher submitHandler={submitHandler} />
             </div>
           </div>
 
