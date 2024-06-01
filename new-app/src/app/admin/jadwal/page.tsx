@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { IoClose } from 'react-icons/io5';
-import Link from 'next/link';
 import useSWR from 'swr';
 
 import ActionButton from '@/components/ActionButton';

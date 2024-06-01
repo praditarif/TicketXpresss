@@ -1,13 +1,12 @@
 'use client';
 
-import useSWR from 'swr';
 
 import ScheduleSearcher from '@/components/ScheduleSearcher';
-import Ticket from './Ticket';
-import useSWRMutation from 'swr/mutation';
 import fetcher from '@/utils/fetcher';
-import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import useSWRMutation from 'swr/mutation';
+import Ticket from './Ticket';
 
 export default function Page() {
   const searchParams = useSearchParams();
@@ -23,15 +22,13 @@ export default function Page() {
     const destination = searchParams.get('destination');
     const date = searchParams.get('date');
 
-    setDeparture(departure || '');
-    setDestination(destination || '');
-    setDate(date || '');
+    setDeparture(departure ?? '');
+    setDestination(destination ?? '');
+    setDate(date ?? '');
   }, []);
 
   useEffect(() => {
-    console.log('di run');
     if (departure && destination && date) {
-      console.log('di trigger juga');
       trigger()
     }
   }, [departure, destination, date]);

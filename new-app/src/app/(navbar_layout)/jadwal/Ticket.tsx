@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 
 import useLoggedProfile from '@/hooks/useLoggedProfile';
 
@@ -20,6 +21,9 @@ interface Props {
 
 export default function Ticket({ schedule }: Readonly<Props>) {
   const { user } = useLoggedProfile();
+  const searchParams = useSearchParams();
+  const departure = searchParams.get('departure');
+  const destination = searchParams.get('destination');
   
   return (
     <section className="w-full h-24 bg-white shadow-md flex rounded-xl border border-zinc-200 overflow-hidden">
@@ -56,7 +60,10 @@ export default function Ticket({ schedule }: Readonly<Props>) {
       </div>
 
       {user && (
-        <Link href={`/app/new-transaction?scheduleId=${schedule.id_jadwal}`} className="bg-dark-orange h-full grid place-items-center text-white font-medium">
+        <Link
+          href={`/app/transaksi/new?scheduleId=${schedule.id_jadwal}&departure=${departure}&destination=${destination}`}
+          className="bg-dark-orange h-full grid place-items-center text-white font-medium"
+        >
           <span className="rotate-90 block">Order</span>
         </Link>
       )}

@@ -30,17 +30,17 @@ export default function ProfileCard({ logoutRoute, redirectRoute }: Readonly<Pro
 
   return (
     <div className="mt-auto flex justify-between items-center bg-blue-ocean/20 gap-4 p-2 border border-blue-ocean rounded-lg">
-      <p className="text-blue-ocean font-semibold text-lg">
-        {user && `Hai, ${user.nama.split(' ')[0]}`}
+      <p className="text-blue-ocean font-semibold text-lg ml-1">
+        {user && `Hai, ${user.nama}`}
       </p>
 
       <Button
         variant="secondary"
         type="button"
-        className="rounded-md aspect-square !p-2 !text-white !bg-blue-ocean !border-none !"
+        className="rounded-md aspect-square !p-1.5 !text-white !bg-blue-ocean !border-none !"
         onClick={handler}
       >
-        <IoLogOut className="!text-2xl" />
+        <IoLogOut className="text-xl" />
       </Button>
     </div>
   )
