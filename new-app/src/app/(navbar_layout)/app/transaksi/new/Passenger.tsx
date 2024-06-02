@@ -31,7 +31,7 @@ export default function Passenger({ passengerCount, value, changeHandler, delete
           placeholder="Nama Lengkap"
           type="text"
           id="nama"
-          name="nama_${"
+          name="nama"
           value={value.nama}
           onChange={(e) => changeHandler(e, value.id)}
           required
@@ -43,7 +43,7 @@ export default function Passenger({ passengerCount, value, changeHandler, delete
 
         <div className="flex gap-3">
           <select
-            name="jenis_identitas_${"
+            name="jenis_identitas"
             className="bg-blue-500 rounded-lg text-white p-3 w-fit"
             value={value.jenis_identitas}
             onChange={(e) => changeHandler(e, value.id)}
@@ -58,7 +58,7 @@ export default function Passenger({ passengerCount, value, changeHandler, delete
             placeholder="Nomor Identitas"
             type="text"
             id="identitas"
-            name={`identitas_${value.id}`}
+            name="identitas"
             value={value.identitas}
             onChange={(e) => changeHandler(e, value.id)}
             required

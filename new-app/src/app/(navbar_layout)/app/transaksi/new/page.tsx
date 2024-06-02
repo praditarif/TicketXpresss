@@ -1,16 +1,17 @@
 'use client';
 
-import { useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import useSWR from 'swr';
 import useSWRMutation from 'swr/mutation';
 
 import Button from '@/components/Button';
 import fetcher from '@/utils/fetcher';
 import Passenger from './Passenger';
-import toast from 'react-hot-toast';
 
 export default function Page() {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const scheduleId = searchParams.get('scheduleId');
   const departureId = searchParams.get('departure');
@@ -65,6 +66,7 @@ export default function Page() {
     if (data) {
       if (data.code === 201) {
         toast.success('Transaksi berhasil dilakukan!');
+        router.push('/app');
       } else {
         toast.error(data.message);
       }

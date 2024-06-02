@@ -17,6 +17,7 @@ export default function Page() {
 
   const { data, trigger } = useSWRMutation(`/schedule?departure=${departure}&destination=${destination}&date=${date}`, fetcher('GET'));
 
+  console.log('data:', data);
   useEffect(() => {
     const departure = searchParams.get('departure');
     const destination = searchParams.get('destination');
@@ -41,6 +42,7 @@ export default function Page() {
     setDeparture(departure.value);
     setDestination(destination.value);
     setDate(date.value);
+    trigger();
   }
 
   return (
@@ -50,7 +52,7 @@ export default function Page() {
       </header>
 
       <section>
-        {data && data.payload.length > 1 ? (
+        {data && data.payload.length >= 1 ? (
           <>
             <h1 className="text-2xl font-semibold mt-10">Jadwal yang tersedia</h1>
 

@@ -23,7 +23,7 @@ export default function Navbar() {
         {pathname.includes('/app') ? (
           <>
             <li>
-              <Link className="hover:text-gray-500" href="/app">Transaksi</Link>
+              <Link className="hover:text-gray-500" href="/app">Tiket</Link>
             </li>
             <li>
               <Link className="hover:text-gray-500" href="/app/riwayat">Riwayat</Link>
