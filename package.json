@@ -1,13 +1,28 @@
 {
+  "name": "new-app",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "start": "tailwindcss -i ./src/styles/input.css -o ./src/styles/style.css --watch"
+    "dev": "next dev --turbo",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "init": "^0.1.2"
+    "jose": "^5.3.0",
+    "next": "14.2.3",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-hot-toast": "^2.4.1",
+    "react-icons": "^5.2.1",
+    "swr": "^2.2.5"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.19",
-    "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.3"
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
   }
 }
