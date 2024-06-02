@@ -6,6 +6,7 @@ import { Toaster } from 'react-hot-toast';
 import SWRConfig from './SWRConfig';
 
 import './globals.css';
+import { Suspense } from 'react';
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -35,7 +36,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${outfit.variable} ${alegreya.variable}`}>
         <SWRConfig>
-          {children}
+          <Suspense>
+            {children}
+          </Suspense>
           <Toaster
             position="bottom-right"
             toastOptions={{
